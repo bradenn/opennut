@@ -1,0 +1,29 @@
+<%- include("partials/header") %>
+<%- include("partials/nav") %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card p-3">
+                <img src="<%= target.link %>" style="width: 100%;"/>
+            </div>
+        </div>
+        <div class="col-md-4">
+
+            <div class="card mb-2 p-3">
+                <div class="card-title"><%= target.name %></div>
+                <div class="card-subtitle">Uploaded by <a
+                            href="/user/<%= target.owner.username %>"><%= target.owner.username %></a></div>
+            </div>
+
+            <div class="card mb-2 p-3">
+                <div class="card-subtitle">Posted to <a
+                            href="/category/<%= target.category.name %>"><%= target.category.name %></a></div>
+            </div>
+            <a href="<%= target.link %>" target="_blank">Open in new tab</a>
+
+        </div>
+    </div>
+</div>
+
+<%- include("partials/footer") %>

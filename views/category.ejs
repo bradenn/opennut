@@ -2,17 +2,13 @@
 <%- include("partials/nav") %>
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-12 d-flex justify-content-between" style="">
-            <div class="card-title mb-3 ml-0">Recent Uploads</div>
-            <div class="form-group">
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                       placeholder="search...">
-            </div>
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <h2><%= target.name %></h2>
         </div>
     </div>
     <div class="row">
-        <% posts.splice(0, 6).forEach(post => { %>
+        <% posts.forEach(post => { %>
             <a href="/post/<%= post._id %>">
                 <div class="col-md-4 mb-3" style="">
                     <div class=""
@@ -28,6 +24,5 @@
         <% }); %>
     </div>
 </div>
-
 
 <%- include("partials/footer") %>

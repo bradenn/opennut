@@ -1,7 +1,7 @@
 {
   "database":
   {
-    "url": "mongodb://index:toor@localhost:27017/index"
+    "url": "mongodb://opennut:toor@localhost:27017/opennut"
   },
   "port":3000
 }

@@ -1,98 +1,51 @@
 let express = require('express');
-let Topic = require('../models/topic');
-let Subtopic = require('../models/subtopic');
-let List = require('../models/list');
-let Text = require('../models/text');
+let Category = require('../models/category');
+let Post = require('../models/post');
 let router = express.Router();
 
-router.get('/list', async (req, res) => {
-    let topics = await Topic.find({}).exec();
-    res.render("newlist", {topics: topics});
+router.get('/post', async (req, res) => {
+    let categories = await Category.find({}).exec();
+    return res.render("newpost", {categories: categories});
 });
 
-router.post('/list', async (req, res) => {
-    let topicData = {
-        name: req.body.title,
-        owner: req.user,
-        description: req.body.description,
+router.post('/post', async (req, res) => {
+    let postData = {
+        owner: req.session.userId,
+        name: req.body.name,
+        category: req.body.category,
         private: !!(req.body.private),
+        gay: !!(req.session.gay),
+        link: req.body.link,
         date: new Date()
     };
-    List.create(topicData, (err, topic) => {
+    Post.create(postData, (err, text) => {
         if (err) {
-            res.render("newlist", {error: err});
-        } else if(topic) {
-            res.redirect(`/list/${topic._id}`);
-        } else{
-            res.render("newlist", {error: "Cock-Banana"});
-        }
-    });
-});
-
-router.get('/text', async (req, res) => {
-    let topics = await Topic.find({}).exec();
-    let subtopics = await Subtopic.find({}).exec();
-    return res.render("newtext", {topics: topics, subtopics: subtopics});
-});
-
-router.post('/text', async (req, res) => {
-    let subtopic = await Subtopic.findOne({name: req.body.subtopic}).exec();
-    let textData = {
-        user: req.session.userId,
-        title: req.body.title.toLowerCase().replace(/ /g, '-'),
-        subtopic: subtopic._id,
-        body: req.body.text,
-        date: new Date()
-    };
-    Text.create(textData, (err, text) => {
-        if (err) {
-            res.render("newtext", {error: err});
+            res.render("newpost", {error: err});
         } else if(text) {
-            res.redirect(`/text/${text.title}`);
+            res.redirect(`/post/${text._id}`);
         } else{
-            res.render("newtext", {error: "Cock-Banana"});
+            res.render("newpost", {error: "Cock-Banana"});
         }
     });
 });
 
-router.get('/topic', async (req, res) => {
-    res.render("newtopic");
+router.get('/category', async (req, res) => {
+    res.render("newcategory");
 });
 
-router.post('/topic', async (req, res) => {
-    let topicData = {
+router.post('/category', async (req, res) => {
+    let categoryData = {
         name: req.body.title.toLowerCase().replace(/ /g, '-'),
-        description: req.body.description
+        description: req.body.description,
+        date: new Date()
     };
-    Topic.create(topicData, (err, topic) => {
+    Category.create(categoryData, (err, category) => {
         if (err) {
-            res.render("newtopic", {error: err});
-        } else if(topic) {
-            res.redirect(`/topic/${topic.name.toLowerCase()}`);
+            res.render("newcategory", {error: err});
+        } else if(category) {
+            res.redirect(`/category/${category.name}`);
         } else{
-            res.render("newtopic", {error: "Cock-Banana"});
-        }
-    });
-});
-
-router.get('/subtopic', async (req, res) => {
-    let topics = await Topic.find({}).exec();
-    res.render("newsubtopic", {topics: topics});
-});
-
-router.post('/subtopic', async (req, res) => {
-    let subtopicData = {
-        name: req.body.title.toLowerCase().replace(/ /g, '-'),
-        topic: req.body.topic,
-        description: req.body.description
-    };
-    Subtopic.create(subtopicData, (err, subtopic) => {
-        if (err) {
-            res.render("newsubtopic", {error: err});
-        } else if(subtopic) {
-            res.redirect(`/subtopic/${subtopic.name.toLowerCase()}`);
-        } else{
-            res.render("newsubtopic", {error: "Cock-Banana"});
+            res.render("newcategory", {error: "Cock-Banana"});
         }
     });
 });

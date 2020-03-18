@@ -14,6 +14,16 @@ let UserSchema = new mongoose.Schema({
     },
     display: String,
     bio: String,
+    gender: {
+        type: String,
+        enum: ['male', 'female', 'other'],
+        default: "male"
+    },
+    sexuality: {
+        type: String,
+        enum: ['straight', 'gay', 'bi'],
+        default: 'straight'
+    },
     password: String,
     date: String
 });

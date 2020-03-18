@@ -44,6 +44,7 @@ app.use(async (req, res, next) => {
     req.back = req.get("referer");
     req.user = user;
     app.locals.user = user;
+    app.locals.gay = req.session.gay;
     next();
 });
 

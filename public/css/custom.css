@@ -4,18 +4,6 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* Change the color of the nav bar */
-.bg-dark {
-    background-color: #212529 !important;
-}
-
-/* Make cards look like mat.io */
-.card{
-    border-radius: 8px;
-    padding:16px;
-    border: 1px solid #dadce0;
-}
-
 .card-title {
     margin-bottom: 0;
     -moz-osx-font-smoothing: grayscale;
@@ -37,6 +25,21 @@
     font-weight: 400;
     text-decoration: inherit;
     text-transform: inherit;
-    opacity: .6;
     margin-bottom: 4px;
+}
+
+.rainbow-text {
+    background-image: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px white;
+    font-weight: 700;
+}
+
+
+hr {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.2);
 }

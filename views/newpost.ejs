@@ -1,0 +1,59 @@
+<%- include("partials/header") %>
+<%- include("partials/nav") %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card-title">
+                New Post
+            </div>
+            <div class="card-subtitle">
+                Post Some #sexypics
+            </div>
+            <div class="card p-3">
+                <% if(typeof error != 'undefined'){ %>
+                    <span class="alert alert-danger">
+                     <strong>Error: <%= (error) ? error : "Unknown Error" %></strong>
+                 </span>
+                <% } %>
+                <form action="/new/post" method="post">
+                    <div class="form-group">
+                        <label for="entryTitle">Title</label>
+                        <input type="text" class="form-control" id="name" name="name" aria-describedby="entryTitle">
+                        <small id="emailHelp" class="form-text text-muted"></small>
+                    </div>
+                    <div class="form-group d-flex align-items-center">
+                        <div class="w-100 ">
+                            <label for="entryTitle">Link</label>
+                            <input type="text" class="form-control" id="link" name="link" aria-describedby="entryTitle">
+                            <small id="emailHelp" class="form-text text-muted"></small>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <select class="custom-select" name="category">
+                            <% categories.forEach(cat => { %>
+                                <option value="<%= cat._id %>"><%= cat.name %></option>
+                            <% }); %>
+                        </select>
+                    </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1" name="private">
+                        <label class="form-check-label" for="exampleCheck1">Make private</label>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="text-muted"></span>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-4">
+
+        </div>
+    </div>
+</div>
+
+
+<%- include("partials/footer") %>

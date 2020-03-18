@@ -1,0 +1,7 @@
+{
+  "database":
+  {
+    "url": "mongodb://index:toor@localhost:27017/index"
+  },
+  "port":3000
+}

@@ -1,0 +1,53 @@
+<%- include("partials/header") %>
+<%- include("partials/nav") %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        Development
+                    </div>
+                        <i class="fas fa-link"></i>
+                    <div>
+                        https://dev.bradenn.com
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card m-0 p-0">
+                <div class="m-3">
+                    <div class="d-flex justify-content-between mb-1">
+                        <div style="width: 3em; height: 3em; background-color: #1b1e21; border-radius: 8px;">
+                        </div>
+                        <a href="#">edit</a>
+                    </div>
+                    <div class="mb-1">
+                        <div class="card-title">
+                            <%= target.display %>
+                        </div>
+                        <div class="card-subtitle">
+                            Registered <%= new Date().toLocaleDateString() %>
+                        </div>
+                    </div>
+                    <div>
+                        <%= (target.bio) ? target.bio : "" %>
+                    </div>
+                </div>
+                <ul class="list-group list-group-flush mb-1">
+                    <li class="list-group-item">Cras justo odio</li>
+                    <li class="list-group-item">Dapibus ac facilisis in</li>
+                    <li class="list-group-item">Morbi leo risus</li>
+                    <li class="list-group-item">Porta ac consectetur ac</li>
+                    <li class="list-group-item">Vestibulum at eros</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<%- include("partials/footer") %>

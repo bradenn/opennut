@@ -1,0 +1,37 @@
+<%- include("partials/header") %>
+<%- include("partials/nav") %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card-title">
+                Topics
+            </div>
+            <div class="card-subtitle">
+                The index of topics
+            </div>
+            <div class="card">
+                <% lists.forEach(list => { %>
+                    <h4 class="ml-2"><a href="/list/<%= list._id %>"><%= list.name %></a></h4>
+                <% }); %>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-4">
+            <div class="card-title">
+                Lists
+            </div>
+            <div class="card-subtitle">
+                The index of topics
+            </div>
+            <div class="card">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<%- include("partials/footer") %>

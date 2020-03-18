@@ -1,0 +1,47 @@
+<%- include("partials/header") %>
+<%- include("partials/nav") %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card-title">
+                New Topic
+            </div>
+            <div class="card-subtitle">
+                Create a new topic
+            </div>
+            <div class="card">
+                <% if(typeof error != 'undefined'){ %>
+                    <span class="alert alert-danger">
+                     <strong>Error: <%= (error) ? error : "Unknown Error" %></strong>
+                 </span>
+                <% } %>
+                <form action="/new/topic" method="post">
+                    <div class="form-group">
+                        <label for="entryTitle">Topic Name</label>
+                        <input type="text" class="form-control" id="title" name="title" aria-describedby="entryTitle">
+                        <small id="emailHelp" class="form-text text-muted">Avoid click-bait, make the title
+                            representative
+                            of the topic</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Topic Description</label>
+                        <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="text-muted">Topics cannot be deleted once submitted, only merged</span>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-4">
+
+        </div>
+    </div>
+</div>
+
+
+<%- include("partials/footer") %>

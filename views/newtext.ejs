@@ -1,0 +1,54 @@
+<%- include("partials/header") %>
+<%- include("partials/nav") %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card-title">
+                New Text Entry
+            </div>
+            <div class="card-subtitle">
+                Create a new text entry in the index
+            </div>
+            <div class="card">
+                <% if(typeof error != 'undefined'){ %>
+                    <span class="alert alert-danger">
+                     <strong>Error: <%= (error) ? error : "Unknown Error" %></strong>
+                 </span>
+                <% } %>
+                <form action="/new/text" method="post">
+                    <div class="form-group">
+                        <label for="entryTitle">Entry Title</label>
+                        <input type="text" class="form-control" id="entryTitle" name="title" aria-describedby="entryTitle">
+                        <small id="emailHelp" class="form-text text-muted">Avoid click-bait, make the title
+                            representative
+                            of the text</small>
+                    </div>
+                    <div class="d-flex mb-3 justify-content-between align-items-center">
+                        <div class="w-100">
+                            <label for="topic">Subtopic</label>
+                            <input type="text" class="form-control" id="subtopic" name="subtopic"
+                                   aria-describedby="entryTitle">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Text Entry</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" name="text" rows="3"></textarea>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="text-muted">Entries cannot be deleted once submitted</span>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-4">
+
+        </div>
+    </div>
+</div>
+
+
+<%- include("partials/footer") %>

@@ -1,0 +1,42 @@
+* {
+    font-family: 'IBM Plex Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Change the color of the nav bar */
+.bg-dark {
+    background-color: #212529 !important;
+}
+
+/* Make cards look like mat.io */
+.card{
+    border-radius: 8px;
+    padding:16px;
+    border: 1px solid #dadce0;
+}
+
+.card-title {
+    margin-bottom: 0;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-size: 1.25rem;
+    line-height: 2rem;
+    font-weight: 500;
+    letter-spacing: .0125em;
+    text-decoration: inherit;
+    text-transform: inherit;
+}
+
+.card-subtitle {
+    margin-top: 0;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    font-weight: 400;
+    text-decoration: inherit;
+    text-transform: inherit;
+    opacity: .6;
+    margin-bottom: 4px;
+}

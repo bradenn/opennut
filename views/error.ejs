@@ -1,0 +1,16 @@
+<%- include("partials/header") %>
+<%- include("partials/nav") %>
+
+<div class="container">
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="display-4">Error: <%= (error.status)?error.status:500 %></h1>
+            <pre><%= error %></pre>
+        </div>
+    </div>
+</div>
+
+
+
+
+<%- include("partials/footer") %>
